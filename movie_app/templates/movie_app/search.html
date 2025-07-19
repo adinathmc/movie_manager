@@ -1,0 +1,42 @@
+{% extends "movie_app/menu.html" %}
+{% block title %} Search Movies {% endblock title %}
+{% block content %}
+    <form method="GET" class="search-form">
+        <input type="text" name="query" placeholder="Search for a Movie...">
+        <input type="submit" value="Search">
+    </form>
+    {% if result %}
+            {% for movies in result %}
+        <table>
+            <tr>
+                <th>Movie Name</th>
+                <td>{{movies.name}}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{movies.year}}</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>{{movies.director}}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{movies.genre}}</td>
+            </tr>
+            <tr>
+                <td style="text-align : center;">
+                    <a class="edit-link" href = "{% url 'edit' movies.id %}">Edit</a>
+                </td>
+                <td  style="text-align : center;">
+                    <a class="delete-link" href = "{% url 'delete' movies.id %}"> Delete</a>
+                </td>
+            </tr>
+        </table><br><br>
+    {% endfor %}
+    {% else %}
+        <p>No results found for your {{query}}</p>
+    {% endif %}
+    
+    
+{% endblock content %}

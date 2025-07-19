@@ -1,0 +1,27 @@
+# Python bytecode
+*.py[cod]
+__pycache__/
+
+# Virtual environment
+testenv1/
+
+# Django files to ignore
+db.sqlite3
+*.log
+
+# Media and static files (optional)
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# VSCode or IDE
+.vscode/
+*.swp
+.DS_Store
+
+# Migrations cache
+*/migrations/__pycache__/
+*/migrations/*.pyc
+

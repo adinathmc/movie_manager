@@ -1,0 +1,32 @@
+{% extends "movie_app/menu.html" %}
+{% block title %}Movies {% endblock title %}
+{% block content %}
+    {% for movies in movie_list %}
+        <table>
+            <tr>
+                <th>Movie Name</th>
+                <td>{{movies.name}}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{movies.year}}</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>{{movies.director}}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{movies.genre}}</td>
+            </tr>
+            <tr>
+                <td style="text-align : center;">
+                    <a class="edit-link" href = "{% url 'edit' movies.id %}">Edit</a>
+                </td>
+                <td  style="text-align : center;">
+                    <a class="delete-link" href = "{% url 'delete' movies.id %}?next={% url 'list' %}"> Delete</a>
+                </td>
+            </tr>
+        </table><br><br>
+    {% endfor %}
+{% endblock content %}

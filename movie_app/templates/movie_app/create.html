@@ -1,0 +1,13 @@
+{% extends "movie_app/menu.html" %}
+{% block title %} Create Movie {% endblock title %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type ="Submit" value="Add">
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "movie_app/menu.html" %}
+{% block title %} Delete Movie {% endblock title %}
+
+{% block content %}
+    {% for movies in movie_list %}
+        <table>
+            <tr>
+                <th>Movie Name</th>
+                <td><a class="delete-link" href="{% url 'delete' movies.id %}?next={% url 'delete_all' %}">{{movies.name}}</a></td>
+            </tr>
+        </table><br><br>
+    {% endfor %}
+{% endblock content %}

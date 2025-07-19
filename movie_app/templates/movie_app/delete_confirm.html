@@ -1,0 +1,16 @@
+{% extends "movie_app/menu.html" %}
+{% block title %} Confirm Delete {% endblock title %}
+{% block content %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <p>Confirm Delete for <strong>{{instance.name}}</strong></p><br>
+        <span class="confirm-btns">
+            <input class ="yes-btn" type="submit" value="Yes">
+            <a class = "no-btn" href="{{next_url|default:"list"}}">No</a>
+        </span>
+    </form>
+</div>
+{% endblock content %}
+
+

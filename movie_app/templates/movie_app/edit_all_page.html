@@ -1,0 +1,13 @@
+{% extends "movie_app/menu.html" %}
+{% block title %} Edit Movie {% endblock title %}
+
+{% block content %}
+    {% for movies in movie_list %}
+        <table>
+            <tr>
+                <th>Movie Name</th>
+                <td><a class ="edit-link" href="{% url 'edit' movies.id %}">{{movies.name}}</a></td>
+            </tr>
+        </table><br><br>
+    {% endfor %}
+{% endblock content %}
