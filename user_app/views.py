@@ -3,9 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-#from .models import create_user
-#from .forms import create_user_form
-from django.contrib.auth.forms import UserCreationForm
+from .models import UserCreation
+from .forms import CreateUserForm
 
 
 
@@ -25,12 +24,12 @@ def login_user(request):
 
 def register_user(request):
     if request.method == 'POST':
-        frm = UserCreationForm(request.POST)
+        frm = CreateUserForm(request.POST)
         if frm.is_valid():
             frm.save()
             return redirect('login')
     else:
-        frm = UserCreationForm()
+        frm = CreateUserForm()
         return render(request, 'user_app/register_user.html', {'form': frm})
 
 def logout_user(request):

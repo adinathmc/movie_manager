@@ -126,3 +126,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = reverse_lazy('login') # Redirect to the login page after logout
+
+AUTH_USER_MODEL = 'user_app.UserCreation'  # Use the custom user model
