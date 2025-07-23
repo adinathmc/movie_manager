@@ -23,11 +23,13 @@ def login_user(request):
     return render(request, 'user_app/login.html')
 
 def register_user(request):
-    if request.method == 'POST':
+    if (request.method == 'POST'):
         frm = CreateUserForm(request.POST)
         if frm.is_valid():
             frm.save()
             return redirect('login')
+        else:
+            return render(request, 'user_app/register_user.html', {'form': frm})
     else:
         frm = CreateUserForm()
         return render(request, 'user_app/register_user.html', {'form': frm})
